@@ -6,12 +6,12 @@ app = FastAPI()
 apiKey = "secret123"
 @app.get("/")
 def root():
-    return{"messag": "HelloWorld!"}
+    return{"Selamat datang di vercel"}
 
 @app.get("/protected")
 def root(key: str = Header(None)):
     if key == None or key != apiKey:
-        raise HTTPException(status_code=401, detail="Ivalid API key!")
+        raise HTTPException(status_code=401, detail="Invalid API key!")
     
     df = pd.read_csv('data_aja.csv')
 
